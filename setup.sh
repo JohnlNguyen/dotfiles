@@ -15,6 +15,4 @@ ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 ln -s ~/.dotfiles/tmux ~/.tmux
 echo "Success! You now have John's configurations"
-sleep 1
-curl -L http://bit.ly/10hA8iC | bash
-exit
+source ~/.zshrc
