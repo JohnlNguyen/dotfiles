@@ -14,11 +14,6 @@
 ### Optional
 * iTerm2 (mac)
 
-## Install
-### Download
-
-`https://github.com/JohnlNguyen/dotfiles.git ~/.dotfiles`
-
 ### Automatic setup:
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/johnlnguyen/dotfiles/master/setup.sh"
 
