@@ -11,4 +11,4 @@ ln -s ~/.dotfiles/zfunc ~/.zfunc
 ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 ln -s ~/.dotfiles/tmux ~/.tmux
-
+echo "Success! You now have John's configurations"
