@@ -13,7 +13,7 @@
 
 ### Automatic setup:
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/johnlnguyen/dotfiles/master/setup.sh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/johnlnguyen/dotfiles/master/setup.sh)"
 
 ```
 
