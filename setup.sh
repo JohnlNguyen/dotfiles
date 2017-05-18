@@ -1,5 +1,5 @@
 #!/bin/sh
-setup > out.log 2> /dev/null
+exec 2>/dev/null
 rm ~/.zshrc ~/.gitconfig ~/.vimrc ~/.tmux
 
 git clone https://github.com/JohnlNguyen/dotfiles.git ~/.dotfiles
