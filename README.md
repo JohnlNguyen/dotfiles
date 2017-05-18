@@ -17,7 +17,7 @@
 ## Install
 ### Download
 
-`~/.dotfiles`
+`https://github.com/JohnlNguyen/dotfiles.git ~/.dotfiles`
 
 ### Automatic setup:
 
