@@ -1,8 +1,5 @@
 # John Nguyen's Dotfiles
 
-## Contents
-
-
 ## Dependencies
 ### Required
 * zsh
@@ -15,5 +12,6 @@
 * iTerm2 (mac)
 
 ### Automatic setup:
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/johnlnguyen/dotfiles/master/setup.sh"
+```sh -c "$(curl -fsSL https://raw.githubusercontent.com/johnlnguyen/dotfiles/master/setup.sh"
+```
 
