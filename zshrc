@@ -50,11 +50,11 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export MANPATH="/usr/local/man:$MANPATH"
 export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.6/lib:$DYLD_LIBRARY_PATH
 # You may need to manually set your language environment
@@ -71,7 +71,6 @@ export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.6/lib:$DYLD_LIBRARY_PATH
 # export ARCHFLAGS="-arch x86_64"
 # zsh completetion
 fpath=(/usr/local/share/zsh-completions $fpath)
-plugins=(… zsh-completions)
 autoload -U compinit && compinit
 
 # ssh
@@ -91,13 +90,17 @@ autoload -Uz find-dir
 alias editzsh="vi ~/.zshrc"
 alias gl="git log --oneline"
 alias sscm='ssh John@169.237.101.6 '
+alias sscm3='ssh JohnNguyen@169.237.101.28'
 alias ssfr='ssh ubuntu@169.237.101.154'
 alias ga="git add ."  
-alias sublime="open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias vi='mvim -v'
+alias resetzsh='source ~/.zshrc'
 # Python django 
 alias run="python3 manage.py runserver"
 autoload -Uz workon
 autoload -Uz migrate
-
+alias virtual="virtualenv -p python3 venv"
+alias install-r="pip3 install -r requirements.txt"
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export EDITOR='subl -w'
