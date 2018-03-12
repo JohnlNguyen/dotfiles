@@ -55,6 +55,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export USER=whoami``
 export MANPATH="/usr/local/man:$MANPATH"
 export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.6/lib:$DYLD_LIBRARY_PATH
 # You may need to manually set your language environment
