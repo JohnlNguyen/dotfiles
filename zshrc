@@ -6,7 +6,7 @@
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/Cellar/gcc/7.2.0/bin:$PATH
 export EDITOR='subl -w'
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export ORACLE_HOME=/Users/John/oracle/instantclient_12_2
 export DYLD_LIBRARY_PATH=$ORACLE_HOME
@@ -66,7 +66,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+export USER=whoami``
 export MANPATH="/usr/local/man:$MANPATH"
 export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.6/lib:$DYLD_LIBRARY_PATH
 # You may need to manually set your language environment
