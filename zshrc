@@ -1,5 +1,16 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
+#PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+#export PATH=/usr/local/bin:$PATH
+#export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/Cellar/gcc/7.2.0/bin:$PATH
+export EDITOR='subl -w'
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export ORACLE_HOME=/Users/John/oracle/instantclient_12_2
+export DYLD_LIBRARY_PATH=$ORACLE_HOME
+export LD_LIBRARY_PATH=$ORACLE_HOME
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -55,23 +66,23 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
 export MANPATH="/usr/local/man:$MANPATH"
 export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.6/lib:$DYLD_LIBRARY_PATH
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#if [[ -n $SSH_CONNECTION ]]; then
+#export EDITOR='vim'
+#else
+#export EDITOR='mvim'
+#fi
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 # zsh completetion
-fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -U compinit && compinit
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -86,21 +97,54 @@ autoload -Uz find-dir
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias editzsh="vi ~/.zshrc"
-alias gl="git log --oneline"
-alias sscm='ssh John@169.237.101.6 '
-alias sscm3='ssh JohnNguyen@169.237.101.28'
-alias ssfr='ssh ubuntu@169.237.101.154'
-alias ga="git add ."  
-alias vi='mvim -v'
+# Shell alias 
+alias editzsh="subl ~/.zshrc"
 alias resetzsh='source ~/.zshrc'
+
+# Git 
+alias gl="git log --oneline"
+
+# SSH 
+alias sscm='ssh John@169.237.101.6 '
+alias ssfr='ssh ubuntu@169.237.101.154'
+alias sscm3='ssh JohnNguyen@169.237.101.28'
+# editor 
+#alias vi='mvim -v'
+export EDITOR='subl -w'
+
+# Tmux 
+alias tname='tmux rename-session -t'
+alias ta='tmux attach -t'
+alias tls='tmux ls'
+alias ts='tmux new -s'
+alias tk='tmux kill-session -t'
+alias tka='tmux kill-server'
+
+#Open Mp
+#alias gcc='gcc-7'
+
+alias g++='g++ -g -std=c++11'
 # Python django 
 alias run="python3 manage.py runserver"
 autoload -Uz workon
 autoload -Uz migrate
-alias virtual="virtualenv -p python3 venv"
-alias install-r="pip3 install -r requirements.txt"
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
-export EDITOR='subl -w'
+alias pypy3="/Users/John/.opt/bin/pypy3"
+
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)"
+  fi
+}
+prompt_end() {
+  if [[ -n $CURRENT_BG ]]; then
+      print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  else
+      print -n "%{%k%}"
+  fi
+
+  print -n "%{%f%}"
+  CURRENT_BG='' 
+
+  #Adds the new line and ➜ as the start character.
+  printf "\n ➜";
+}
