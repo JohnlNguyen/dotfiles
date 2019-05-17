@@ -11,7 +11,7 @@ export WATCHMAN_ROOT=/Users/John/Watchman
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship" # Uncomment the following line to use case-sensitive completion.
+ZSH_THEME="agnoster" # Uncomment the following line to use case-sensitive completion.
 #CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
@@ -58,8 +58,6 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 source $ZSH/oh-my-zsh.sh
 
-SPACESHIP_PACKAGE_SHOW=false
-
 # User configuration
 export USER='whoami'
 export MANPATH="/usr/local/man:$MANPATH"
@@ -93,11 +91,8 @@ autoload -Uz find-dir
 # For a full list of active aliases, run `alias`.
 #
 # Shell alias
-alias editzsh="subl ~/.dotfiles/zshrc"
+alias editzsh="subl ~/.zshrc"
 alias resetzsh='source ~/.zshrc'
-
-# Wathman
-alias wm="watchman "
 
 # Git
 alias gl="git log --oneline"
@@ -154,13 +149,3 @@ prompt_end() {
   printf "\n ➜";
 }
 
-# start an ubuntu docker container and bind the directory
-docker-ubuntu() {
-  docker run -it -v $1:$2 ubuntu
-}
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/John/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/John/bin/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/John/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/John/bin/google-cloud-sdk/completion.zsh.inc'; fi
