@@ -1,1 +1,0 @@
-function get-csif(){ scp knguy130@pc12.cs.ucdavis.edu:"$1" "$2";  }

@@ -6,4 +6,4 @@ RUN apt-get install -y build-essential
 ADD . .
 
 CMD make install
-CMD make verify
+CMD make show-os

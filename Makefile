@@ -1,9 +1,11 @@
 OS ?= $(shell uname)
 
-install: install-brew install-zsh install-dotfiles
+install: install-brew install-zsh install-dotfiles install-iterm install-iterm-theme
 
 install-brew:
-	@ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	@curl https://raw.githubusercontent.com/Homebrew/install/master/install > brew-install
+	@ruby brew-install
+	@rm brew-install
 
 install-zsh:
 	@brew install zsh zsh-completions
@@ -13,12 +15,18 @@ install-zsh:
 install-dotfiles:
 	@sh ./setup.sh
 
+install-iterm-theme:
+	@open ./OneDark.itermcolors
+
+install-iterm:
+	@curl https://iterm2.com/downloads/stable/iTerm2-3_2_9.zip > iTerm2-3_2_9.zip
+	@unzip iTerm2-3_2_9.zip
+	@mv iTerm.app /Applications/
+	@rm iTerm2-3_2_9.zip
+
 test:
 	@docker build -f Dockerfile -t dotfiles/test:latest .
 	@docker run -it dotfiles/test:latest
 
 show-os:
 	@echo "Current OS is (${OS})"
-
-verify:
-	@echo "OK!"

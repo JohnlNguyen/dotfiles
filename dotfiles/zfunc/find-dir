@@ -1,3 +1,0 @@
-function(){
-    find . -type d | grep $1;
-}
