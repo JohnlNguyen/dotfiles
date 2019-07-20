@@ -1,10 +1,10 @@
 #!/bin/sh
-exec 2>/dev/null
-rm ~/.zshrc ~/.gitconfig ~/.vimrc ~/.tmux
+mkdir -p ~/.dotfiles/backup
 
-git clone https://github.com/JohnlNguyen/dotfiles.git ~/.dotfiles
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+mv ~/.zshrc ~/.gitconfig ~/.vimrc ~/.tmux ~/.dotfiles/backup
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh

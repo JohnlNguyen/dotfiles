@@ -1,19 +1,17 @@
 # If you come from bash you might have to change your $PATH.
+export GOPATH=/Users/John/go
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/Cellar/gcc/7.2.0/bin:$PATH
 export EDITOR='subl -w'
-WATCHMAN_ROOT=/Users/John/Watchman
+export PATH=$PATH:$GOPATH/bin
+source ~/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-
+export WATCHMAN_ROOT=/Users/John/Watchman
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
-
+ZSH_THEME="spaceship" # Uncomment the following line to use case-sensitive completion.
 #CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
@@ -55,18 +53,28 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
+plugins=(git)
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 source $ZSH/oh-my-zsh.sh
+
+SPACESHIP_PACKAGE_SHOW=false
 
 # User configuration
 export USER='whoami'
 export MANPATH="/usr/local/man:$MANPATH"
+export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.6/lib:$DYLD_LIBRARY_PATH
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+#if [[ -n $SSH_CONNECTION ]]; then
+#export EDITOR='vim'
+#else
+#export EDITOR='mvim'
+#fi
+
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 # zsh completetion
@@ -88,6 +96,9 @@ autoload -Uz find-dir
 alias editzsh="subl ~/.dotfiles/zshrc"
 alias resetzsh='source ~/.zshrc'
 
+# Wathman
+alias wm="watchman "
+
 # Git
 alias gl="git log --oneline"
 
@@ -95,6 +106,14 @@ alias gl="git log --oneline"
 alias sscm='ssh John@169.237.101.6 '
 alias ssfr='ssh ubuntu@169.237.101.154'
 alias sscm3='ssh JohnNguyen@169.237.101.28'
+
+function upload(){
+  scp knguy130@pc32.cs.ucdavis.edu:"$1" "$2";
+}
+
+# editor
+#alias vi='mvim -v'
+export EDITOR='subl -w'
 
 # Tmux
 alias tname='tmux rename-session -t'
@@ -106,6 +125,8 @@ alias tka='tmux kill-server'
 
 #Open Mp
 #alias gcc='gcc-7'
+
+alias dirsize="du -sh -- *"
 
 alias g++='g++ -g -std=c++11'
 # Python django
@@ -132,3 +153,14 @@ prompt_end() {
   #Adds the new line and ➜ as the start character.
   printf "\n ➜";
 }
+
+# start an ubuntu docker container and bind the directory
+docker-ubuntu() {
+  docker run -it -v $1:$2 ubuntu
+}
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/John/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/John/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/John/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/John/bin/google-cloud-sdk/completion.zsh.inc'; fi
