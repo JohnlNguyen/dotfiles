@@ -1,6 +1,6 @@
 OS ?= $(shell uname)
 
-install: install-brew install-zsh install-dotfiles install-iterm install-iterm-theme
+install: install-brew install-zsh install-dotfiles install-iterm install-iterm-theme install-sublime
 
 install-brew:
 	@curl https://raw.githubusercontent.com/Homebrew/install/master/install > brew-install
@@ -23,6 +23,11 @@ install-iterm:
 	@unzip iTerm2-3_2_9.zip
 	@mv iTerm.app /Applications/
 	@rm iTerm2-3_2_9.zip
+
+install-sublime:
+	@curl https://download.sublimetext.com/Sublime%20Text%20Build%203207.dmg > SublimeText.dmg
+	@ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+	@rm SublimeText.dmg
 
 test:
 	@docker build -f Dockerfile -t dotfiles/test:latest .
