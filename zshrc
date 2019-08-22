@@ -79,22 +79,12 @@ autoload -Uz cl
 autoload -Uz get-csif
 autoload -Uz ssif
 autoload -Uz find-dir
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Shell alias
 alias editzsh="subl ~/.dotfiles/zshrc"
 alias resetzsh='source ~/.zshrc'
 
 # Git
 alias gl="git log --oneline"
-
-# SSH
-alias sscm='ssh John@169.237.101.6 '
-alias ssfr='ssh ubuntu@169.237.101.154'
-alias sscm3='ssh JohnNguyen@169.237.101.28'
+alias amend='git commit --amend --no-edit'
 
 # Tmux
 alias tname='tmux rename-session -t'
@@ -103,17 +93,12 @@ alias tls='tmux ls'
 alias ts='tmux new -s'
 alias tk='tmux kill-session -t'
 alias tka='tmux kill-server'
-
-#Open Mp
-#alias gcc='gcc-7'
-
 alias g++='g++ -g -std=c++11'
-# Python django
-alias run="python3 manage.py runserver"
+
 autoload -Uz workon
 autoload -Uz migrate
-alias pypy3="/Users/John/.opt/bin/pypy3"
 
+# Prompt
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)"
@@ -132,3 +117,5 @@ prompt_end() {
   #Adds the new line and ➜ as the start character.
   printf "\n ➜";
 }
+
+RPROMPT="%{$fg[green]%}[%D{%y/%m/%f}|%@]"
